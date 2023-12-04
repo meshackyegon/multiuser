@@ -1,5 +1,6 @@
 from django.db import models
 from Health_Institutions.models import HealthInstitution
+from django.contrib.auth.models import User
 
 class EventDetails(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -11,6 +12,7 @@ class EventDetails(models.Model):
     event_endtime=models.TimeField()
     hospital=models.ForeignKey(HealthInstitution, on_delete=models.CASCADE)
     date_registered = models.DateTimeField(auto_now_add=True)
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
 

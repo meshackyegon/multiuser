@@ -44,6 +44,22 @@ def event_details_delete(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     event_details.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+@api_view(['GET'])
+def event_details_search(request, name):
+    event_details = EventDetails.objects.filter(name__icontains=name)
+    serializer = EventSerializer(event_details, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def event_details_search_by_location(request, location):
+    event_details = EventDetails.objects.filter(location__icontains=location)
+    serializer = EventSerializer(event_details, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def event_details_search_by_date(request, date):
+    event_details = EventDetails.objects.filter(event_date__icontains=date)
+    serializer = EventSerializer(event_details, many=True)
+    return Response(serializer.data)
+
 
 
 

@@ -46,4 +46,20 @@ def health_institution_delete(request, id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     health_institution.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+@api_view(['GET'])
+def health_institution_search(request, name):
+    health_institutions = HealthInstitution.objects.filter(name__icontains=name)
+    serializer = HealthInstitutionSerializer(health_institutions, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def health_institution_search_by_location(request, location):
+    health_institutions = HealthInstitution.objects.filter(location__icontains=location)
+    serializer = HealthInstitutionSerializer(health_institutions, many=True)
+    return Response(serializer.data)
+@api_view(['GET'])
+def health_institution_search_by_speciality(request, speciality):
+    health_institutions = HealthInstitution.objects.filter(speciality__icontains=speciality)
+    serializer = HealthInstitutionSerializer(health_institutions, many=True)
+    return Response(serializer.data)
+
 

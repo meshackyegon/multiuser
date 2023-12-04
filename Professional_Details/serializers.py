@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Professional
+from django.contrib.auth.models import User
 # from Health_Institutions.serializers import HealthSerializer
 from Health_Institutions.models import HealthInstitution
 class ProfessionalSerializer(serializers.ModelSerializer):
@@ -22,3 +23,7 @@ class ProfessionalSingleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professional
         fields = ('id', 'name', 'address', 'phone', 'email', 'profession', 'salary', 'speciality')
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email')

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class HealthInstitution(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -10,9 +11,6 @@ class HealthInstitution(models.Model):
     bed_capacity = models.IntegerField()
     website = models.URLField(max_length=100)
     speciality = models.CharField(max_length=100)
-    def __str__(self):
-        return self.name
-   
-
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return self.name

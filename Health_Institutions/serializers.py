@@ -33,4 +33,4 @@ class HealthSerializer(ModelSerializer):
 class SingleHealthInstitutionSerializer(ModelSerializer):
     class Meta:
         model = HealthInstitution
-        fields = ('id','name', 'address', 'phone', 'email', 'description', 'location', 'bed_capacity', 'website', 'speciality')
+        fields = ('name', 'address', 'phone', 'email', 'description', 'location', 'bed_capacity', 'website', 'speciality')
