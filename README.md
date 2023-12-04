@@ -10,6 +10,11 @@ Multiser application
 7. Now we can run the command for actiating the environment that is windows operating system: ".venv\scripts\activate" and Linux and Mac "source .venv/bin/activate"
 8. This will aoutomatically configure your terminal to the project environment
 9. Now start the server by running the command  "python manage.py runserver"
+if the  server does not start annd requires you to install other packages , rin this three commands: 
+  pip install django
+  pip install djangorestframework
+  pip install drf-yasg
+-after installing the packages try to run the command for running the server once one 
 10. this will provide ypou with a server for testing the restfulAPIS in your machine in this url but may change if your machine has another service running in that port. 'http://127.0.0.1:8000/'
 11. For testing purpose i have two approaches where we can the st the code using the swagger UI that will be in this url 'http://127.0.0.1:8000/swagger/' and navigating to specific endspoints url.
 12. The swagger UI also will help you know the folders in which the Urls folders .
